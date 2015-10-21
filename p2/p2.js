@@ -13633,6 +13633,11 @@ game.ContactMaterial = p2.ContactMaterial;
 game.DistanceConstraint = p2.DistanceConstraint;
 game.Convex = p2.Convex;
 
+game.Body.prototype.remove = function() {
+    if (!this.world) return;
+    this.world.removeBody(this);
+};
+
 game.World.prototype._update = function() {
     this.step(game.delta);
 };

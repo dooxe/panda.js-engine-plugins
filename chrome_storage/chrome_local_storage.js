@@ -18,7 +18,9 @@ game.Storage = game.Storage.extend({
     isChromeApp: false,
 
     init: function(id) {
-        this.id = id;
+        // Set id
+        this._super(id);
+
         // Try work with chrome.storage
         try {
             var that = this;

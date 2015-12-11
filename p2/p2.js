@@ -13327,9 +13327,12 @@ game.DebugDraw.inject({
             }
 
             body.rotation = body.target.angle;
-            body.position.x = body.target.position[0] * body.target.world.ratio + body.stage.position.x;
-            body.position.y = body.target.position[1] * body.target.world.ratio + body.stage.position.y;
             if (!body.target.world) this.bodyContainer.removeChild(body);
+            else
+            {
+                body.position.x = body.target.position[0] * body.target.world.ratio + body.stage.position.x;
+                body.position.y = body.target.position[1] * body.target.world.ratio + body.stage.position.y;
+            }
         }
     }
 });

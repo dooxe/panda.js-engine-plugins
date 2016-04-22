@@ -17,7 +17,7 @@ game.createClass('TileMap', {
 
     init: function(json) {
         this.json = game.getJSON(json);
-        if (!this.json) throw 'Tilemap JSON not found';
+        if (!this.json) throw 'Tilemap JSON "'+json+'" not found';
 
         this.tileWidth = this.json.tilewidth;
         this.tileHeight = this.json.tileheight;
@@ -107,7 +107,7 @@ game.createClass('TileMap', {
 
                 var tile = this.getTile(layer.data[o]);
                 var x = (o % layer.width);
-                var y = Math.floor(o / layer.height);
+                var y = Math.floor(o / layer.width);
                 var position = this.getPosition(x, y);
                 tile.anchor.set(
                     0.5,
